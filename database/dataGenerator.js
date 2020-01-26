@@ -46,8 +46,11 @@ function generateArtistName() {
 
 function generateRelatedTracks() {
   const songs = [];
+  let initial = Math.round(Math.random() * 100000);
   // generate 100 song objects
   for (let i = 0; i < 100; i += 1) {
+    initial += 1;
+    const id = initial;
     const artist = generateArtistName();
     const title = faker.random.words();
     const albumArt = faker.image.imageUrl(50, 50);
@@ -58,6 +61,7 @@ function generateRelatedTracks() {
     const tags = generateTags();
 
     songs.push({
+      id,
       artist,
       title,
       albumArt,
