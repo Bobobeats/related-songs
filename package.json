@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest",
     "build": "webpack",
-    "start": "nodemon ./server/"
+    "start": "nodemon ./server/",
+    "seed": "node ./database/dataGenerator.js && npm run dropCollection && npm run import",
+    "dropCollection": "mongo musicLibrary --eval 'db.songs.drop()",
+    "import": "mongoimport --db=musicLibrary --collection=songs --file=/database/songs.json --jsonArray"
   },
   "repository": {
     "type": "git",
@@ -43,6 +46,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.8.9",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
