@@ -1,13 +1,26 @@
 const express = require('express');
 const path = require('path');
+const db = require('../database/db');
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-// GET Request
-// will invoke helper method to take in genre/hashtag and return 3 related tracks
+app.get('/api/songs/:songId', (req, res) => {
+  // would return { songId: "<Number>"}
+  const songId = Number(req.params.songId);
+  // call db method here
+  db.grabRelatedSongs(songId, (err, results) => {
+    if (err) {
+      console.log('ERROR RETRIEVING RELATED TRACKS');
+      res.send(err);
+    } else {
+      console.log('SUCCESSFULLY RETRIEVED RELATED TRACKS');
+      res.send(results);
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log('App is listening on Port 3000...');
