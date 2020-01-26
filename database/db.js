@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/songs', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/songs', { useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => console.log('Successfully connected to databse!'));
 
@@ -16,6 +16,7 @@ function grabRelatedSongs(songId, callback) {
     tags: Array,
   });
 
+  console.log('SONGID:', songId);
   const Song = mongoose.model('Song', songSchema);
 
   Song.find({ id: songId }, (err, results) => {
@@ -23,6 +24,7 @@ function grabRelatedSongs(songId, callback) {
       console.log('ERROR FINDING BY SONG ID');
       callback(err);
     } else {
+      console.log('results');
       console.log(results.tags);
       Song.find({ tags: results.tags }, (error, res) => {
         if (error) {
