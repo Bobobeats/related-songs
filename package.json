@@ -8,8 +8,8 @@
     "build": "webpack",
     "start": "nodemon ./server/",
     "seed": "node ./database/dataGenerator.js && npm run dropCollection && npm run import",
-    "dropCollection": "mongo musicLibrary --eval 'db.songs.drop()",
-    "import": "mongoimport --db=musicLibrary --collection=songs --file=/database/songs.json --jsonArray"
+    "dropCollection": "mongo musicLibrary --eval 'db.songs.drop()'",
+    "import": "mongoimport --db=musicLibrary --collection=songs --file=./database/songs.json --jsonArray"
   },
   "repository": {
     "type": "git",
