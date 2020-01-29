@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 // import { Users } from 'styled-icons/fa-solid/UserFriends';
-import { Followers } from 'styled-icons/icomoon/Users';
-import { Follow } from 'styled-icons/icomoon/UserPlus';
+import { Users } from 'styled-icons/icomoon/Users';
+import { UserPlus } from 'styled-icons/icomoon/UserPlus';
 import PropTypes from 'prop-types';
 // import { FollowingIcon } from 'styled-icons/icomoon/UserCheck';
 
 const StyledContainer = styled.div`
   font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  position: absolute;
+  text-align: center;
+  width: 70px;
+  height: 75px;
+  z-index: 3;
+  background-color: #ffffff;
 `;
 
 const ArtistName = styled.div`
@@ -18,9 +24,10 @@ const AvatarUrl = styled.img`
   border-radius: 50%;
 `;
 
-const FollowersIcon = styled(Followers)`
+const FollowersIcon = styled(Users)`
   justify-content: center;
   color: #999999;
+  size: 10px;
 `;
 
 const FollowerCount = styled.div`
@@ -36,14 +43,14 @@ const FollowButton = styled.button`
   border: 1px;
   border-color: ${(props) => (props.following ? '#333333' : '#FF5500')}
   border-radius: 3px;
-  background-color: #fffff;
+  background-color: #ffffff;
   text-align: center;
 `;
 
 // const Following = styled(FollowingIcon)`
 // `;
 
-const FollowIcon = styled(Follow)`
+const FollowIcon = styled(Users)`
 `;
 
 class ArtistProfile extends React.Component {
@@ -66,19 +73,18 @@ class ArtistProfile extends React.Component {
 
   render() {
     const { track } = this.props;
-    const { following, followingStatus } = this.state;
+    const { following } = this.state;
+    const { followingStatus } = this.state;
     return (
       <StyledContainer>
         <AvatarUrl src={track.avatarUrl} />
         <ArtistName />
         <div>
-          <FollowersIcon />
-          <FollowerCount>{track.formatted.followers}</FollowerCount>
+          <FollowerCount>{track.followers}</FollowerCount>
         </div>
-        {track.location && <Location>{track.location }</Location>}
-        <FollowButton className="followbutton" following={{ following }} onClick={this.onFollow.bind}>
-          <FollowIcon />
-          <p>{{ followingStatus }}</p>
+        {track.location && <Location>{ track.location }</Location>}
+        <FollowButton className="followbutton" following={{ following }} onClick={this.onFollow}>
+          <span>{followingStatus}</span>
         </FollowButton>
       </StyledContainer>
     );
@@ -87,8 +93,10 @@ class ArtistProfile extends React.Component {
 
 ArtistProfile.propTypes = {
   track: PropTypes.instanceOf(Object),
-  formatted: PropTypes.instanceOf(Object),
-  
-}
+};
+
+ArtistProfile.defaultProps = {
+  track: {},
+};
 
 export default ArtistProfile;
