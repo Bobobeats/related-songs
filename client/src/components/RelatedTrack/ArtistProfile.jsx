@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import numberFormatter from './NumberFormatter';
 import {
-  StyledContainer,
+  ArtistProfileContainer,
   ArtistName,
   AvatarUrl,
   FollowerCount,
   Location,
   FollowButton,
+  FollowersIcon,
 } from './styles';
 
 class ArtistProfile extends React.Component {
@@ -14,17 +16,16 @@ class ArtistProfile extends React.Component {
     super(props);
     this.state = {
       following: false,
-      followingStatus: 'Following' || 'Follow',
+      followingStatus: 'Follow',
     };
     this.onFollow = this.onFollow.bind(this);
   }
 
   onFollow() {
-    const { following, followingStatus } = this.state;
+    const { following } = this.state;
     this.setState({
-      following: !{ following },
-      followingStatus: !{ followingStatus },
-    });
+      following: !following,
+    }, this.setState((state) => ({ followingStatus: state.following ? 'Follow' : 'Following' })));
   }
 
   render() {
@@ -32,17 +33,19 @@ class ArtistProfile extends React.Component {
     const { following } = this.state;
     const { followingStatus } = this.state;
     return (
-      <StyledContainer>
+      <ArtistProfileContainer>
         <AvatarUrl src={track.avatarUrl} />
-        <ArtistName />
-        <div>
-          <FollowerCount>{track.followers}</FollowerCount>
+        <ArtistName>{track.artist}</ArtistName>
+        <div style={{ margin: '0px 0px 7px 0px' }}>
+          <FollowersIcon size="11px" />
+          { ' ' }
+          <FollowerCount>{numberFormatter(track.followers)}</FollowerCount>
         </div>
         {track.location && <Location>{ track.location }</Location>}
-        <FollowButton className="followbutton" following={{ following }} onClick={this.onFollow}>
+        <FollowButton className="followbutton" following={following} onClick={this.onFollow}>
           <span>{followingStatus}</span>
         </FollowButton>
-      </StyledContainer>
+      </ArtistProfileContainer>
     );
   }
 }
@@ -56,3 +59,7 @@ ArtistProfile.defaultProps = {
 };
 
 export default ArtistProfile;
+
+// toggle modal onMouseEnter of artist
+// this modal will also have onmouseenter and mouseleave...onmouseleave will signal 
+// to retoggle the modal?

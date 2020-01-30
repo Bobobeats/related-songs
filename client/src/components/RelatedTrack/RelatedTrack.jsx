@@ -16,19 +16,36 @@ class RelatedTrack extends React.Component {
     this.state = {
       isHovering: false,
     };
-    this.onHover = this.onHover.bind(this);
+    this.onHoverTrue = this.onHoverTrue.bind(this);
+    this.onHoverFalse = this.onHoverFalse.bind(this);
   }
 
-  onHover() {
-    const { isHovering } = this.state;
-    this.setState({
-      isHovering: !isHovering,
-    });
+  onHoverTrue() {
+    setTimeout(() => {
+      this.setState({
+        isHovering: true,
+      });
+    }, 200);
+  }
+
+  onHoverFalse() {
+    setTimeout(() => {
+      this.setState({
+        isHovering: false,
+      });
+    }, 200);
   }
 
   render() {
     const { track } = this.props;
     const { isHovering } = this.state;
+    const hoverBoxProp = {
+      position: 'absolute',
+      zIndex: '3',
+      minHeight: '230px',
+      opacity: '0.1px',
+      width: '160px',
+    };
     return (
       <TrackContainer>
         <div style={{ float: 'left' }}>
@@ -36,10 +53,14 @@ class RelatedTrack extends React.Component {
         </div>
         <TextContainer>
           <TitleContainer>
-            <div onMouseEnter={this.onHover} onMouseLeave={this.onHover} style={{ float: 'left' }}>
+            <span onMouseEnter={this.onHoverTrue} style={{ float: 'left' }}>
               {track.artist}
-              { isHovering && <ArtistProfile track={track} /> }
-            </div>
+              { isHovering && (
+                <div className="HoverBox" onMouseLeave={this.onHoverFalse} style={hoverBoxProp}>
+                  <ArtistProfile track={track} />
+                </div>
+              )}
+            </span>
             <div style={{ width: '100%' }} />
             <TrackTitle>{track.title}</TrackTitle>
           </TitleContainer>
