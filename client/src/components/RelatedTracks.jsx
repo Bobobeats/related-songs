@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 import RelatedTrack from './RelatedTrack/RelatedTrack';
 import { RelatedTrackLi } from './RelatedTrack/styles';
 
-const RelatedTracks = ({ trackList }) => {
-  return (
-    <ul>
-      {trackList.map((track) => (
-        <RelatedTrackLi key={track.songId}>
-          <RelatedTrack track={track} />
-        </RelatedTrackLi>
-      ))}
-    </ul>
-  );
-};
+const RelatedTracks = ({ trackList }) => (
+  <ul>
+    {trackList.map((track) => (
+      <RelatedTrackLi key={track.songId}>
+        <RelatedTrack track={track} />
+      </RelatedTrackLi>
+    ))}
+  </ul>
+);
 
 RelatedTracks.propTypes = {
   trackList: PropTypes.instanceOf(Array),

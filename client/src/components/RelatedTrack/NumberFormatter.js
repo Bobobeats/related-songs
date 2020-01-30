@@ -2,7 +2,6 @@ const numberFormatter = (prop) => {
   let propStr = '';
   if (prop >= 1000000) {
     const divProp = prop / 1000000;
-    console.log(divProp);
     if ((divProp) % 1 >= 0.01) {
       propStr = `${(divProp).toString().substring(0, 4)}M`;
     } else {
