@@ -44,6 +44,15 @@ function generateArtistName() {
   return possNames[Math.floor(Math.random() * possNames.length)];
 }
 
+function generateLocation() {
+  const hasCity = Math.floor(Math.random() * 5);
+  if (hasCity === 4) {
+    const loc = faker.address.city;
+    return loc;
+  }
+  return undefined;
+}
+
 function generateRelatedTracks() {
   const songs = [];
   let initial = Math.round(Math.random() * 100000);
@@ -52,8 +61,10 @@ function generateRelatedTracks() {
     initial += 1;
     const songId = initial;
     const artist = generateArtistName();
+    const avatarUrl = `https://loremflickr.com/50/50/face?random=${Math.floor(Math.random() * 500)}`;
+    const location = generateLocation();
     const title = faker.random.words();
-    const albumArt = faker.image.imageUrl(50, 50);
+    const albumArt = `https://picsum.photos/50/50?random=${Math.floor(Math.random() * 400)}`;
     const plays = Math.round(Math.random() * (max - min + 1) + min);
     const likes = randomBasedOnPlays(plays, 0.15);
     const reposts = randomBasedOnPlays(plays, 0.1);
@@ -63,6 +74,8 @@ function generateRelatedTracks() {
     songs.push({
       songId,
       artist,
+      avatarUrl,
+      location,
       title,
       albumArt,
       plays,
