@@ -1,28 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import ArtistProfile from './ArtistProfile';
-
-const TrackContainer = styled.div`
-  display: flex;
-  font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-`;
-
-const AlbumArt = styled.img`
-`;
-
-const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const TrackTitle = styled.div`
-  float: left;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  word-break: normal;
-`;
+import RelatedTrackInfo from './RelatedTrackInfo';
+import {
+  TrackContainer,
+  AlbumArt,
+  TitleContainer,
+  TrackTitle,
+  TextContainer,
+} from './styles';
 
 class RelatedTrack extends React.Component {
   constructor(props) {
@@ -48,14 +34,22 @@ class RelatedTrack extends React.Component {
         <div style={{ float: 'left' }}>
           <AlbumArt src={track.albumArt} />
         </div>
-        <TitleContainer>
-          <div onMouseEnter={this.onHover} onMouseLeave={this.onHover} style={{float: 'left' }}>
-            {track.artist}
-            { isHovering && <ArtistProfile track={track} /> }
-          </div>
-          <div style={{ width: '100%'}} />
-          <TrackTitle>{track.title}</TrackTitle>
-        </TitleContainer>
+        <TextContainer>
+          <TitleContainer>
+            <div onMouseEnter={this.onHover} onMouseLeave={this.onHover} style={{ float: 'left' }}>
+              {track.artist}
+              { isHovering && <ArtistProfile track={track} /> }
+            </div>
+            <div style={{ width: '100%' }} />
+            <TrackTitle>{track.title}</TrackTitle>
+          </TitleContainer>
+          <RelatedTrackInfo
+            plays={track.plays}
+            likes={track.likes}
+            reposts={track.reposts}
+            comments={track.comments}
+          />
+        </TextContainer>
         <div style={{ width: '100%' }} />
       </TrackContainer>
     );
