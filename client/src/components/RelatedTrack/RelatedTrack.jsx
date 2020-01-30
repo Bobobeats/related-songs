@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ArtistProfile from './ArtistProfile';
 import RelatedTrackInfo from './RelatedTrackInfo';
+import PlayLikesMore from './PlayLikesMore';
 import {
   TrackContainer,
   AlbumArt,
@@ -48,6 +49,7 @@ class RelatedTrack extends React.Component {
     };
     return (
       <TrackContainer>
+        <PlayLikesMore />
         <div style={{ float: 'left' }}>
           <AlbumArt src={track.albumArt} />
         </div>

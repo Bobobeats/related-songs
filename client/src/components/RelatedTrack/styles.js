@@ -5,8 +5,11 @@ import { Users } from 'styled-icons/icomoon/Users';
 // import { FollowingIcon } from 'styled-icons/icomoon/UserCheck';
 import { HeartFullOutline } from 'styled-icons/typicons/HeartFullOutline';
 import { CommentAlt } from 'styled-icons/fa-solid/CommentAlt';
-import { Play } from 'styled-icons/boxicons-regular/Play';
+import { Play3 } from 'styled-icons/icomoon/Play3';
 import { Repost } from 'styled-icons/boxicons-regular/Repost';
+import { MoreHoriz } from 'styled-icons/material/MoreHoriz';
+import { PauseCircleFilled } from 'styled-icons/material/PauseCircleFilled';
+import { PlayCircleFilled } from 'styled-icons/material/PlayCircleFilled';
 
 export const ArtistProfileContainer = styled.div`
   font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
@@ -130,7 +133,7 @@ export const Comments = styled(CommentAlt)`
   height: 12px;
 `;
 
-export const Plays = styled(Play)`
+export const Plays = styled(Play3)`
   display: inline;
   width: 16px;
   height: 12px;
@@ -149,4 +152,42 @@ export const TrackStatistic = styled.div`
 
 export const TrackStatNum = styled.span`
   justify-cotent: center;
+`;
+
+export const LikeButton = styled(HeartFullOutline)`
+  color: ${(props) => (props.toggled ? '#000000' : '#FF5500')};
+  border: 1px;
+  border-color: ${(props) => (props.toggled ? '#333333' : '#FF5500')}
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #ffffff;
+  text-align: center;
+  float: right;
+`;
+
+export const MoreButton = styled(MoreHoriz)`
+  color: ${(props) => (props.toggled ? '#000000' : '#FF5500')};
+  border: 1px;
+  border-color: ${(props) => (props.toggled ? '#333333' : '#FF5500')}
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #ffffff;
+  text-align: center;
+  float: right;
+`;
+
+export const PauseButton = styled(PauseCircleFilled)`
+  color: '#FF5500';
+  cursor: pointer;
+`;
+
+export const PlayButton = styled(PlayCircleFilled)`
+  color: '#FF5500';
+  cursor: pointer;
+`;
+
+export const TrackHover = styled.div`
+  opacity: 0;
+  z-index: 6;
+  display: inline;
 `;
