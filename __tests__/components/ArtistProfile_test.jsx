@@ -1,7 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import ArtistProfile from '../../client/src/components/ArtistProfile';
+import ArtistProfile from '../../client/src/components/RelatedTrack/ArtistProfile';
 
 Enzyme.configure({ adapter: new Adapter() });
 
