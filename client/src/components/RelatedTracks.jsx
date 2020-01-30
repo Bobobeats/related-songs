@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RelatedTrack from './RelatedTrack';
+import RelatedTrack from './RelatedTrack/RelatedTrack';
+import { RelatedTrackLi } from './RelatedTrack/styles';
 
 const RelatedTracks = (props) => {
   const { trackList } = props;
   return (
     <ul>
-      {trackList.map((track) => {
-        return <li><RelatedTrack track={track} key={track.id} /></li>;
-      })}
+      {trackList.map((track) => (
+        <RelatedTrackLi key={track.songId}>
+          <RelatedTrack track={track} />
+        </RelatedTrackLi>
+      ))}
     </ul>
   );
 };
