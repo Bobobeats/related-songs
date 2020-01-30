@@ -4,7 +4,8 @@ import RelatedTracks from './RelatedTracks';
 const sampleList = [{
   songId: 71937,
   artist: 'Brendan Corwin',
-  avatarUrl: 'https://loremflickr.com/50/50',
+  followers: 4521,
+  avatarUrl: 'https://loremflickr.com/120/120',
   title: 'repurpose Handmade eyeballs',
   albumArt: 'https://loremflickr.com/50/50',
   plays: 796333,
@@ -16,7 +17,8 @@ const sampleList = [{
 {
   songId: 71938,
   artist: 'Alena Brakus',
-  avatarUrl: 'https://loremflickr.com/50/50',
+  followers: 10739,
+  avatarUrl: 'https://loremflickr.com/120/120',
   title: 'paradigms platforms programming',
   albumArt: 'https://loremflickr.com/50/50',
   plays: 345859,
@@ -28,7 +30,8 @@ const sampleList = [{
 {
   songId: 71939,
   artist: 'ofelia',
-  avatarUrl: 'https://loremflickr.com/50/50',
+  avatarUrl: 'https://loremflickr.com/120/120',
+  followers: 2341,
   title: 'turquoise seize',
   albumArt: 'https://loremflickr.com/50/50',
   plays: 380199,
