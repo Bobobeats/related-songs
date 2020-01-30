@@ -46,11 +46,12 @@ function generateArtistName() {
 
 function generateLocation() {
   const hasCity = Math.floor(Math.random() * 5);
-  if (hasCity === 4) {
-    const loc = faker.address.city;
+  let loc;
+  if (hasCity >= 4) {
+    loc = faker.address.city();
     return loc;
   }
-  return undefined;
+  return 'Nowhere';
 }
 
 function generateRelatedTracks() {

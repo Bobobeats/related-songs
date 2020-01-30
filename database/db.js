@@ -6,9 +6,12 @@ db.once('open', () => console.log('Successfully connected to database!'));
 
 function grabRelatedSongs(songId, callback) {
   const songSchema = new mongoose.Schema({
+    songId: Number,
     artist: String,
     title: String,
     albumArt: String,
+    avatarUrl: String,
+    location: String,
     plays: Number,
     likes: Number,
     reposts: Number,
