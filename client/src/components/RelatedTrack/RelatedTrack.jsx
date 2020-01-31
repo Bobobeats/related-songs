@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ArtistProfile from './ArtistProfile';
 import RelatedTrackInfo from './RelatedTrackInfo';
-import PlayLikesMore from './PlayLikesMore';
+import LikesAndMore from './LikesAndMore';
+import AlbumArtContainer from './AlbumArtContainer';
 import {
   TrackContainer,
-  AlbumArt,
   TitleContainer,
   TrackTitle,
   TextContainer,
@@ -15,31 +15,40 @@ class RelatedTrack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHovering: false,
+      isHoveringArtist: false,
+      isHoveringTrack: false,
     };
-    this.onHoverTrue = this.onHoverTrue.bind(this);
-    this.onHoverFalse = this.onHoverFalse.bind(this);
+    this.onHoverArtistTrue = this.onHoverArtistTrue.bind(this);
+    this.onHoverArtistFalse = this.onHoverArtistFalse.bind(this);
+    this.onHoverTrack = this.onHoverTrack.bind(this);
   }
 
-  onHoverTrue() {
+  onHoverArtistTrue() {
     setTimeout(() => {
       this.setState({
-        isHovering: true,
+        isHoveringArtist: true,
       });
     }, 200);
   }
 
-  onHoverFalse() {
+  onHoverArtistFalse() {
     setTimeout(() => {
       this.setState({
-        isHovering: false,
+        isHoveringArtist: false,
       });
     }, 200);
+  }
+
+  onHoverTrack() {
+    const { isHoveringTrack } = this.state;
+    this.setState({
+      isHoveringTrack: !isHoveringTrack,
+    });
   }
 
   render() {
     const { track } = this.props;
-    const { isHovering } = this.state;
+    const { isHoveringArtist, isHoveringTrack } = this.state;
     const hoverBoxProp = {
       position: 'absolute',
       zIndex: '3',
@@ -47,23 +56,27 @@ class RelatedTrack extends React.Component {
       opacity: '0.1px',
       width: '160px',
     };
+
+    const artistProp = {
+      float: 'left',
+      'max-width': '100%',
+      display: 'inline',
+    };
+
     return (
-      <TrackContainer>
-        <PlayLikesMore />
-        <div style={{ float: 'left' }}>
-          <AlbumArt src={track.albumArt} />
-        </div>
+      <TrackContainer onMouseEnter={this.onHoverTrack} onMouseLeave={this.onHoverTrack}>
+        <AlbumArtContainer isHovering={isHoveringTrack} albumArt={track.albumArt} />
+        <LikesAndMore isHovering={isHoveringTrack} />
         <TextContainer>
           <TitleContainer>
-            <span onMouseEnter={this.onHoverTrue} style={{ float: 'left' }}>
+            <span onMouseEnter={this.onHoverArtistTrue} style={{ artistProp }}>
               {track.artist}
-              { isHovering && (
-                <div className="HoverBox" onMouseLeave={this.onHoverFalse} style={hoverBoxProp}>
+              { isHoveringArtist && (
+                <div className="HoverBox" onMouseLeave={this.onHoverArtistFalse} style={hoverBoxProp}>
                   <ArtistProfile track={track} />
                 </div>
               )}
             </span>
-            <div style={{ width: '100%' }} />
             <TrackTitle>{track.title}</TrackTitle>
           </TitleContainer>
           <RelatedTrackInfo
@@ -73,7 +86,6 @@ class RelatedTrack extends React.Component {
             comments={track.comments}
           />
         </TextContainer>
-        <div style={{ width: '100%' }} />
       </TrackContainer>
     );
   }

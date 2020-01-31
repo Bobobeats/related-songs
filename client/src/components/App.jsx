@@ -1,5 +1,10 @@
 import React from 'react';
 import RelatedTracks from './RelatedTracks';
+import {
+  Header,
+  HeaderContainer,
+  EqualizerIcon,
+} from './RelatedTrack/styles';
 
 const sampleList = [{
   songId: 71937,
@@ -41,6 +46,19 @@ const sampleList = [{
   tags: ['Dance', 'EDM'],
 }];
 
-const App = () => <RelatedTracks trackList={sampleList} />;
+const App = () => {
+  return (
+    <div style={{ width: '300px' }}>
+      <HeaderContainer>
+        <Header>
+          <EqualizerIcon size="24px" />
+          <span style={{ display: 'inline-block' }}>Related Tracks</span>
+        </Header>
+        <span>View All</span>
+      </HeaderContainer>
+      <RelatedTracks trackList={sampleList} />
+    </div>
+  );
+};
 
 export default App;
