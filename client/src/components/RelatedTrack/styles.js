@@ -180,6 +180,8 @@ export const LikeButton = styled(HeartFullOutline)`
   text-align: center;
 `;
 
+LikeButton.displayName = 'LikeButton';
+
 export const LikeButtonContainer = styled.button`
   border: 1px solid;
   padding: 2px 4px 2px 4px;
@@ -197,6 +199,8 @@ export const MoreButton = styled(MoreHoriz)`
   cursor: pointer;
   text-align: center;
 `;
+
+MoreButton.displayName = 'MoreButton';
 
 export const MoreButtonContainer = styled.button`
   min-width: 25px;
@@ -225,10 +229,14 @@ export const PauseButton = styled(PauseCircleFilled)`
   fill: #FF5500;
 `;
 
+PauseButton.displayName = 'PauseButton';
+
 export const PlayButton = styled(PlayCircleFilled)`
   cursor: pointer;
   fill: #FF5500;
 `;
+
+PlayButton.displayName = 'PlayButton';
 
 export const TrackHover = styled.div`
   position: absolute;

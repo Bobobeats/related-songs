@@ -49,6 +49,6 @@ describe('Related Tracks Component', () => {
       },
     ];
     const wrapper = shallow(<RelatedTracks trackList={relatedTracks} />);
-    expect(wrapper.find('ul').children()).toHaveLength(relatedTracks.length);
+    expect(wrapper.children()).toHaveLength(relatedTracks.length);
   });
 });
