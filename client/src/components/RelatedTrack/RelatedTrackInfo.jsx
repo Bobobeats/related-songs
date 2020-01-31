@@ -57,7 +57,7 @@ class RelatedTrackInfo extends React.Component {
           <TrackStatNum>{formatted.formattedReposts}</TrackStatNum>
         </TrackStatistic>
         <TrackStatistic>
-          <Comments size="11px" />
+          <Comments size="9px" />
           <TrackStatNum>{formatted.formattedComments}</TrackStatNum>
         </TrackStatistic>
       </TrackInfoContainer>

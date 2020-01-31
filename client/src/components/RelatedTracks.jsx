@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RelatedTrack from './RelatedTrack/RelatedTrack';
-import { RelatedTrackLi } from './RelatedTrack/styles';
+import {
+  RelatedTrackUl,
+  RelatedTrackLi,
+} from './RelatedTrack/styles';
 
 const RelatedTracks = ({ trackList }) => (
-  <ul>
+  <RelatedTrackUl>
     {trackList.map((track) => (
       <RelatedTrackLi key={track.songId}>
         <RelatedTrack track={track} />
       </RelatedTrackLi>
     ))}
-  </ul>
+  </RelatedTrackUl>
 );
 
 RelatedTracks.propTypes = {

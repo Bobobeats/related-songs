@@ -59,7 +59,3 @@ ArtistProfile.defaultProps = {
 };
 
 export default ArtistProfile;
-
-// toggle modal onMouseEnter of artist
-// this modal will also have onmouseenter and mouseleave...onmouseleave will signal 
-// to retoggle the modal?
