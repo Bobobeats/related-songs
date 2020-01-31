@@ -6,7 +6,7 @@ import RelatedTrack from '../../client/src/components/RelatedTrack/RelatedTrack'
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Related Track Component', () => {
-  describe('renders', () => {
+  describe('Rendering:', () => {
     test('should correctly render a single Related Track Component', () => {
       const relatedTrack = {
         songId: 31371,

@@ -49,11 +49,11 @@ class LikesAndMore extends React.Component {
   }
 }
 
-PlayLikesMore.propTypes = {
+LikesAndMore.propTypes = {
   isHovering: PropTypes.bool,
 };
 
-PlayLikesMore.defaultProps = {
+LikesAndMore.defaultProps = {
   isHovering: false,
 };
 

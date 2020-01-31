@@ -6,8 +6,8 @@ import RelatedTrackInfo from '../../client/src/components/RelatedTrack/RelatedTr
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Related Track Statistics', () => {
-  describe('renders', () => {
-    test('should correctly format song statistic info', () => {
+  describe('The component should correctly format song statistic info', () => {
+    test('should correctly truncate given number props', () => {
       const wrapper = shallow(
         <RelatedTrackInfo
           plays={5723640}
@@ -19,7 +19,7 @@ describe('Related Track Statistics', () => {
       wrapper.instance().componentDidMount();
       expect(wrapper.state().formatted.formattedPlays).toEqual('5.72M');
       expect(wrapper.state().formatted.formattedLikes).toEqual('267K');
-      expect(wrapper.state().formatted.formattedReposts).toEqual('6051');
+      expect(wrapper.state().formatted.formattedReposts).toEqual('6,051');
       expect(wrapper.state().formatted.formattedComments).toEqual('981');
     });
   });

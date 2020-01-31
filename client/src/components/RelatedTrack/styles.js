@@ -225,10 +225,14 @@ export const PauseButton = styled(PauseCircleFilled)`
   fill: #FF5500;
 `;
 
+PauseButton.displayName = 'PauseButton';
+
 export const PlayButton = styled(PlayCircleFilled)`
   cursor: pointer;
   fill: #FF5500;
 `;
+
+PlayButton.displayName = 'PlayButton';
 
 export const TrackHover = styled.div`
   position: absolute;
