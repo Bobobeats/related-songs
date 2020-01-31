@@ -62,7 +62,8 @@ function generateRelatedTracks() {
     initial += 1;
     const songId = initial;
     const artist = generateArtistName();
-    const avatarUrl = `https://loremflickr.com/50/50/face?random=${Math.floor(Math.random() * 500)}`;
+    const avatarUrl = `https://i.pravatar.cc/150?u=${Math.floor(Math.random() * 500)}`;
+    const followers = Math.floor(Math.random() * 700000);
     const location = generateLocation();
     const title = faker.random.words();
     const albumArt = `https://picsum.photos/50/50?random=${Math.floor(Math.random() * 400)}`;
@@ -76,6 +77,7 @@ function generateRelatedTracks() {
       songId,
       artist,
       avatarUrl,
+      followers,
       location,
       title,
       albumArt,
