@@ -26,7 +26,6 @@ describe('Artist Profile Component', () => {
       const wrapper = shallow(<ArtistProfile track={relatedTrack} />);
       const spy = jest.spyOn(wrapper.instance(), 'onFollow');
       wrapper.instance().forceUpdate();
-      console.log(wrapper.debug());
       wrapper.find('.followbutton').simulate('click');
       expect(spy).toHaveBeenCalled();
       expect(wrapper.instance().state.following).toEqual(true);
