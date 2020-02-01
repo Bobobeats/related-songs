@@ -4,7 +4,7 @@ import PlayPause from './PlayPause';
 import {
   AlbumArt,
   AlbumContainer,
-} from './styles';
+} from '../styles';
 
 const AlbumArtContainer = (props) => {
   const { albumArt, isHovering } = props;

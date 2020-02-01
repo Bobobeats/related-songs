@@ -9,7 +9,7 @@ import {
   TitleContainer,
   TrackTitle,
   TextContainer,
-} from './styles';
+} from '../styles';
 
 class RelatedTrack extends React.Component {
   constructor(props) {

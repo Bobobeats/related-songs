@@ -6,7 +6,7 @@ import {
   MoreButtonContainer,
   MoreButton,
   LikeButton,
-} from './styles';
+} from '../styles';
 
 class LikesAndMore extends React.Component {
   constructor(props) {

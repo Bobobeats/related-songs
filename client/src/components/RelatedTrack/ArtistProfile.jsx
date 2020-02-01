@@ -9,7 +9,7 @@ import {
   Location,
   FollowButton,
   FollowersIcon,
-} from './styles';
+} from '../styles';
 
 class ArtistProfile extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class ArtistProfile extends React.Component {
     const { following } = this.state;
     this.setState({
       following: !following,
-    }, () => this.setState((state) => ({ followingStatus: state.following ? 'Follow' : 'Following' })));
+    }, () => this.setState((state) => ({ followingStatus: state.following ? 'Following' : 'Follow' })));
   }
 
   render() {

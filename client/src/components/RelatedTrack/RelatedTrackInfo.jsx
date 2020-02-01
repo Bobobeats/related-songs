@@ -9,7 +9,7 @@ import {
   Likes,
   Comments,
   TrackStatNum,
-} from './styles';
+} from '../styles';
 
 class RelatedTrackInfo extends React.Component {
   constructor(props) {

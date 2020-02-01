@@ -4,7 +4,7 @@ import {
   Header,
   HeaderContainer,
   EqualizerIcon,
-} from './RelatedTrack/styles';
+} from './styles';
 
 const App = () => {
   const [trackList, updateTracks] = useState([]);
