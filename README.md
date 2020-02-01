@@ -2,7 +2,7 @@
   My contribution to the Front-End Capstone Phase; this component attempts to replicate the related tracks component found on the sidebar when on a Soundcloud song page. 
 
 # Screenshots
-  <blockquote class="imgur-embed-pub" lang="en" data-id="a/vBUAH8T" data-context="false" ><a href="//imgur.com/a/vBUAH8T"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+  ![Screen Shot 2020-01-31 at 5 46 47 PM](https://user-images.githubusercontent.com/57578761/73585141-0d0ab000-4453-11ea-936f-7cb9af5a31e5.png)
 
 # Tech/framework used
   -React
