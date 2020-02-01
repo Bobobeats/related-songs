@@ -4,7 +4,7 @@ import {
   PlayButtonContainer,
   PlayButton,
   PauseButton,
-} from './styles';
+} from '../styles';
 
 class PlayPause extends React.Component {
   constructor(props) {

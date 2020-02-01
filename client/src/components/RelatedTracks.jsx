@@ -4,7 +4,7 @@ import RelatedTrack from './RelatedTrack/RelatedTrack';
 import {
   RelatedTrackUl,
   RelatedTrackLi,
-} from './RelatedTrack/styles';
+} from './styles';
 
 const RelatedTracks = ({ trackList }) => (
   <RelatedTrackUl>

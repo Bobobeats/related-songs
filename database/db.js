@@ -4,21 +4,21 @@ mongoose.connect('mongodb://localhost/musicLibrary', { useNewUrlParser: true, us
 const db = mongoose.connection;
 db.once('open', () => console.log('Successfully connected to database!'));
 
-function grabRelatedSongs(songId, callback) {
-  const songSchema = new mongoose.Schema({
-    songId: Number,
-    artist: String,
-    title: String,
-    albumArt: String,
-    avatarUrl: String,
-    location: String,
-    plays: Number,
-    likes: Number,
-    reposts: Number,
-    comments: Number,
-    tags: Array,
-  });
+const songSchema = new mongoose.Schema({
+  songId: Number,
+  artist: String,
+  title: String,
+  albumArt: String,
+  avatarUrl: String,
+  location: String,
+  plays: Number,
+  likes: Number,
+  reposts: Number,
+  comments: Number,
+  tags: Array,
+});
 
+function grabRelatedSongs(songId, callback) {
   const Song = mongoose.model('Song', songSchema);
 
   Song.find({ songId }, (err, results) => {

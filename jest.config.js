@@ -130,11 +130,11 @@ module.exports = {
 
   // The paths to modules that run some code to configure or set up the testing
   // environment before each test
-  // setupFiles: [],
+  setupFiles: ['<rootDir>setupTests.js'],
 
   // A list of paths to modules that run some code to configure or set up the testing
   // framework before each test
-  // setupFilesAfterEnv: [],
+  // setupFilesAfterEnv: ['jest-enzyme'],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
@@ -143,7 +143,9 @@ module.exports = {
   testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
-  // testEnvironmentOptions: {},
+  // testEnvironmentOptions: {
+  //   enzymeAdapter: 'react16',
+  // },
 
   // Adds a location field to test results
   // testLocationInResults: false,

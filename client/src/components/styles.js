@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import { Users } from 'styled-icons/icomoon/Users';
-// import { Users } from 'styled-icons/fa-solid/UserFriends';
-// import { UserPlus } from 'styled-icons/icomoon/UserPlus';
-// import { FollowingIcon } from 'styled-icons/icomoon/UserCheck';
 import { HeartFullOutline } from 'styled-icons/typicons/HeartFullOutline';
 import { CommentAlt } from 'styled-icons/fa-solid/CommentAlt';
 import { Play3 } from 'styled-icons/icomoon/Play3';
@@ -12,62 +9,48 @@ import { PauseCircleFilled } from 'styled-icons/material/PauseCircleFilled';
 import { PlayCircleFilled } from 'styled-icons/material/PlayCircleFilled';
 import { Equalizer } from 'styled-icons/boxicons-regular/Equalizer';
 
-export const ArtistProfileContainer = styled.div`
+/* *********************HEADER STYLING*************************** */
+
+export const HeaderContainer = styled.div`
   font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-  position: absolute;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  width: 139px;
-  min-height: 199px;
-  z-index: 3;
-  margin-top: 10px;
-  padding: 10px;
-  box-shadow: 2px 2px 4px #999;
-  background-color: #ffffff;
-  flex-direction: column;
+  display: flex;
+  line-height: 24px;
+  flex-direction: row;
+  font-size: 12px;
+  font-weight: 100;
+  color: #999;
+  border-bottom: 1px solid #f2f2f2;
+  justify-content: space-between;
 `;
 
-export const ArtistName = styled.div`
-  margin: 0px 0px 7px 0px;
-  color: #333;
+export const Header = styled.h3`
+  margin: 0px;
+  font-size: 12px;
+  display: flex
+  align-items: center;
+  font-weight: 100;
+  flex-direction: row;
 `;
 
-export const AvatarUrl = styled.img`
-  border-radius: 50%;
-  width: 80px;
-  margin: 0px 0px 10px 0px;
-  height: 80px;
+export const EqualizerIcon = styled(Equalizer)`
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 4px;
 `;
 
-export const FollowersIcon = styled(Users)`
-  justify-content: center;
-  color: #999999;
+/* *********************RELATED TRACKS STYLING*************************** */
+
+export const RelatedTrackUl = styled.ul`
+  padding: 0px;
+  margin: 0px 0px 16px 0px;
 `;
 
-export const FollowerCount = styled.span`
-  color: #999999;
-  font-size: 11px;
+export const RelatedTrackLi = styled.li`
+  list-style-type: none;
+  padding: 5px 0px;
 `;
 
-export const Location = styled.div`
-  margin: 0px 0px 7px 0px;
-  justify-content: center;
-`;
-
-export const FollowButton = styled.button`
-  color: ${(props) => (props.following ? '#FF5500' : '#333333')};
-  border: 1px solid;
-  border-radius: 5px;
-  font-size: 11px;
-  border-color: ${(props) => (props.following ? '#FF5500' : '#333333')}
-`;
-
-// const Following = styled(FollowingIcon)`
-// `;
-
-export const FollowIcon = styled(Users)`
-`;
+/* *********************RELATED TRACK STYLING*************************** */
 
 export const TrackContainer = styled.div`
   display: flex;
@@ -87,7 +70,7 @@ export const AlbumContainer = styled.div`
 
 
 export const AlbumArt = styled.img`
-  border: 1px solid #999;
+  border: 1px solid #e5e5e5;
 `;
 
 export const TitleContainer = styled.div`
@@ -125,22 +108,6 @@ export const TextContainer = styled.div`
   justify-content: center;
 `;
 
-export const HoverBox = styled.div`
-  z-index: 4;
-  opacity: 0;
-  margin-top: -15px;
-`;
-
-export const RelatedTrackUl = styled.ul`
-  padding: 0px;
-  margin: 0px 0px 16px 0px;
-`;
-
-export const RelatedTrackLi = styled.li`
-  list-style-type: none;
-  padding: 5px 0px;
-`;
-
 export const Likes = styled(HeartFullOutline)`
   display: inline;
   width: 16px;
@@ -173,6 +140,76 @@ export const TrackStatistic = styled.div`
 export const TrackStatNum = styled.span`
   justify-cotent: center;
 `;
+
+/* *********************ARTISTPROFILE*************************** */
+
+export const ArtistProfileContainer = styled.div`
+  font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  position: absolute;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 139px;
+  min-height: 199px;
+  z-index: 3;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 4px #999;
+  background-color: #ffffff;
+  flex-direction: column;
+`;
+
+export const HoverBox = styled.div`
+  z-index: 4;
+  opacity: 0;
+  margin-top: -15px;
+`;
+
+export const ArtistName = styled.div`
+  margin: 0px 0px 7px 0px;
+  color: #333;
+`;
+
+export const AvatarUrl = styled.img`
+  border-radius: 50%;
+  width: 80px;
+  margin: 0px 0px 10px 0px;
+  height: 80px;
+`;
+
+export const FollowersIcon = styled(Users)`
+  justify-content: center;
+  color: #999999;
+`;
+
+export const FollowerCount = styled.span`
+  color: #999999;
+  font-size: 11px;
+`;
+
+export const Location = styled.div`
+  margin: 0px 0px 7px 0px;
+  justify-content: center;
+`;
+
+export const FollowButton = styled.button`
+  color: ${(props) => (props.following ? '#FF5500' : '#333333')};
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 11px;
+  border-color: ${(props) => (props.following ? '#FF5500' : '#333333')}
+`;
+
+export const TrackHover = styled.div`
+  position: absolute;
+  align-self: center;
+  right: 5px;
+  z-index: 6;
+  display: inline;
+  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
+`;
+
+/* *********************LIKES + MORE BUTTONS*************************** */
 
 export const LikeButton = styled(HeartFullOutline)`
   color: ${(props) => (props.toggled ? '#FF5500' : '#000000')};
@@ -214,6 +251,8 @@ export const MoreButtonContainer = styled.button`
   text-align: center;
 `;
 
+/* *********************PLAY/PAUSE BUTTONS*************************** */
+
 export const PlayButtonContainer = styled.div`
   position: absolute;
   background-size: 3px;
@@ -237,39 +276,3 @@ export const PlayButton = styled(PlayCircleFilled)`
 `;
 
 PlayButton.displayName = 'PlayButton';
-
-export const TrackHover = styled.div`
-  position: absolute;
-  align-self: center;
-  right: 5px;
-  z-index: 6;
-  display: inline;
-  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
-`;
-
-export const HeaderContainer = styled.div`
-  font-family: InterstateSound Tnum,Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-  display: flex;
-  line-height: 24px;
-  flex-direction: row;
-  font-size: 12px;
-  font-weight: 100;
-  color: #999;
-  border-bottom: 1px solid #f2f2f2;
-  justify-content: space-between;
-`;
-
-export const Header = styled.h3`
-  margin: 0px;
-  font-size: 12px;
-  display: flex
-  align-items: center;
-  font-weight: 100;
-  flex-direction: row;
-`;
-
-export const EqualizerIcon = styled(Equalizer)`
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 4px;
-`;
