@@ -56,7 +56,7 @@ function generateLocation() {
 
 function generateRelatedTracks() {
   const songs = [];
-  let initial = Math.round(Math.random() * 100000);
+  let initial = 635140;
   // generate 100 song objects
   for (let i = 0; i < 100; i += 1) {
     initial += 1;
