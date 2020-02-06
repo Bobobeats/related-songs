@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://172.17.0.3/musicLibrary', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://database/musicLibrary', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => console.log('Successfully connected to database!'));
 
