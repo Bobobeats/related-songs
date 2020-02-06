@@ -19,7 +19,11 @@ app.get('/api/songs/:songId', (req, res) => {
       console.log('ERROR RETRIEVING RELATED TRACKS');
       res.send(err);
     } else {
-      console.log('SUCCESSFULLY RETRIEVED RELATED TRACKS');
+      if (results.length === 0) {
+        console.log('NO RELATED TRACKS FOUND :(');
+      } else {
+        console.log('SUCCESSFULLY RETRIEVED RELATED TRACKS');
+      }
       res.send(results);
     }
   });
