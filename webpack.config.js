@@ -27,5 +27,5 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   mode: 'development',
-  watch: true,
+  watch: false,
 };

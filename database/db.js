@@ -27,14 +27,18 @@ function grabRelatedSongs(songId, callback) {
       callback(err);
     } else {
       console.log(`SEARCH RESULTS FOR ${songId}: ${JSON.stringify(results)}`);
-      Song.find({ tags: results[0].tags }, (error, res) => {
-        if (error) {
-          console.log('ERROR FINDING RELATED TRACKS');
-          callback(error);
-        } else {
-          callback(null, res.slice(0, 3));
-        }
-      });
+      if (results.length === 0) {
+        callback(null, []);
+      } else {
+        Song.find({ tags: results[0].tags }, (error, res) => {
+          if (error) {
+            console.log('ERROR FINDING RELATED TRACKS');
+            callback(error);
+          } else {
+            callback(null, res.slice(0, 3));
+          }
+        });
+      }
     }
   });
 }
