@@ -10,7 +10,7 @@ const App = () => {
   const [trackList, updateTracks] = useState([]);
 
   function fetchRelatedTracks() {
-    fetch('http://localhost:3000/api/songs/635191')
+    fetch('/api/songs/635191')
       .then((resp) => resp.json())
       .then((data) => updateTracks(data));
   }
