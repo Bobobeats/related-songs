@@ -56,11 +56,9 @@ function generateLocation() {
 
 function generateRelatedTracks() {
   const songs = [];
-  let initial = 635140;
   // generate 100 song objects
   for (let i = 0; i < 100; i += 1) {
-    initial += 1;
-    const songId = initial;
+    const songId = i;
     const artist = generateArtistName();
     const avatarUrl = `https://i.pravatar.cc/150?u=${Math.floor(Math.random() * 500)}`;
     const followers = Math.floor(Math.random() * 700000);
