@@ -15,3 +15,6 @@
   -Shows 3 related tracks based on tags of current song. 
   -Allows user to hover over the artist name and preview their profile
   -Hovering over each track will bring up interactive buttons
+
+# Notes
+  -From within the related-songs_related_1 container's shell, run the command 'npm run seed' to seed the database

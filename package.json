@@ -9,8 +9,8 @@
     "build": "webpack",
     "start": "node ./server/",
     "seed": "node ./database/dataGenerator.js && npm run dropCollection && npm run import",
-    "dropCollection": "mongo --host \"172.17.0.3\" musicLibrary --eval 'db.songs.drop()'",
-    "import": "mongoimport --uri \"mongodb://172.17.0.3:27017/musicLibrary\" --collection=songs --file=./database/songs.json --jsonArray"
+    "dropCollection": "mongo --host \"database\" musicLibrary --eval 'db.songs.drop()'",
+    "import": "mongoimport --uri \"mongodb://database/musicLibrary\" --collection=songs --file=./database/songs.json --jsonArray"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,7 @@
   },
   "homepage": "https://github.com/Bobobeats/related-songs#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
     "babel-jest": "^25.1.0",
-    "babel-loader": "^8.0.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -42,10 +38,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^25.1.0",
     "jsdom": "16.0.1",
-    "jsdom-global": "3.0.2",
-    "path": "^0.12.7",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "jsdom-global": "3.0.2"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -58,6 +51,13 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "styled-components": "^5.0.0",
-    "styled-icons": "^9.2.0"
+    "styled-icons": "^9.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "path": "^0.12.7",
+    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3"
   }
 }
