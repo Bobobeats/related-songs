@@ -13,7 +13,6 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.get('/api/songs/:songId', (req, res) => {
   // would return { songId: "<Number>"}
   const songId = Number(req.params.songId);
-  console.log(songId);
   // call db method here
   db.grabRelatedSongs(songId, (err, results) => {
     if (err) {
