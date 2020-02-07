@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import RelatedTracks from './RelatedTracks';
 import {
   Header,
@@ -6,11 +7,12 @@ import {
   EqualizerIcon,
 } from './styles';
 
-const App = () => {
+const App = (props) => {
   const [trackList, updateTracks] = useState([]);
 
   function fetchRelatedTracks() {
-    fetch('/api/songs/35')
+    const { songId } = props;
+    fetch(`/api/songs/${songId}`)
       .then((resp) => resp.json())
       .then((data) => updateTracks(data));
   }
@@ -29,6 +31,14 @@ const App = () => {
       <RelatedTracks trackList={trackList} />
     </div>
   );
+};
+
+App.propTypes = {
+  songId: PropTypes.number,
+};
+
+App.defaultProps = {
+  songId: 0,
 };
 
 export default App;
