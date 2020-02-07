@@ -7,7 +7,7 @@
     "test": "jest",
     "test-coverage": "jest --coverage --colors",
     "build": "webpack",
-    "start": "node ./server/",
+    "start": "export HTTPS=true&&node ./server/",
     "seed": "node ./database/dataGenerator.js && npm run dropCollection && npm run import",
     "dropCollection": "mongo --host \"database\" musicLibrary --eval 'db.songs.drop()'",
     "import": "mongoimport --uri \"mongodb://database/musicLibrary\" --collection=songs --file=./database/songs.json --jsonArray"
