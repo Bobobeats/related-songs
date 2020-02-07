@@ -5,6 +5,6 @@ COPY . /src/app
 RUN npm install -P \
   && apk add mongodb \
   && apk add mongodb-tools \
-  && npm run build
+  && npm run build-prod
 EXPOSE 3000
 CMD ["npm","start"]

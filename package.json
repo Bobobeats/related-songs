@@ -6,8 +6,9 @@
   "scripts": {
     "test": "jest",
     "test-coverage": "jest --coverage --colors",
-    "build": "webpack",
-    "start": "export HTTPS=true&&node ./server/",
+    "build-prod": "webpack --mode production",
+    "build-dev": "webpack --mode development",
+    "start": "node ./server/",
     "seed": "node ./database/dataGenerator.js && npm run dropCollection && npm run import",
     "dropCollection": "mongo --host \"database\" musicLibrary --eval 'db.songs.drop()'",
     "import": "mongoimport --uri \"mongodb://database/musicLibrary\" --collection=songs --file=./database/songs.json --jsonArray"
@@ -41,12 +42,17 @@
     "jsdom-global": "3.0.2"
   },
   "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "file-system": "^2.2.2",
     "mongoose": "^5.8.9",
     "nodemon": "^2.0.2",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -54,10 +60,6 @@
     "styled-icons": "^9.2.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "path": "^0.12.7",
-    "babel-loader": "^8.0.6",
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3"
+    "webpack-merge": "^4.2.2"
   }
 }
