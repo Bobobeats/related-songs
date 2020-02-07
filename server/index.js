@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-app.get('api/songs/:songId', (req, res) => {
+app.get('/api/songs/:songId', (req, res) => {
   // would return { songId: "<Number>"}
   const songId = Number(req.params.songId);
   // call db method here
@@ -30,7 +30,7 @@ app.get('api/songs/:songId', (req, res) => {
   });
 });
 
-app.get('/api/relatedtracks_bundle', (req, res) => {
+app.get('/relatedTracks_bundle', (req, res) => {
   fs.readFile(path.join(__dirname, '/../client/dist/relatedTracks_bundle.js'), (err, data) => {
     if (err) {
       console.log(err);
