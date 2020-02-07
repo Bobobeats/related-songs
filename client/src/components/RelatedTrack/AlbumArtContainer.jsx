@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import faker from 'faker';
 import PlayPause from './PlayPause';
 import {
   AlbumArt,
@@ -9,10 +8,9 @@ import {
 
 const AlbumArtContainer = (props) => {
   const { albumArt, isHovering } = props;
-  const alt = faker.random.words(1);
   return (
     <AlbumContainer>
-      <AlbumArt src={albumArt} alt={alt} />
+      <AlbumArt src={albumArt} alt="Album Art" />
       <PlayPause isHovering={isHovering} />
     </AlbumContainer>
   );

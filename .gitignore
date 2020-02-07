@@ -104,3 +104,4 @@ client/dist/relatedTracks_bundle.js
 .tern-port
 
 database/songs.json
+client/dist/stats.json
