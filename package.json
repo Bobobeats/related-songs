@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "test-coverage": "jest --coverage --colors",
-    "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack --config webpack.dev.js",
+    "build-prod": "webpack --mode production",
+    "build-dev": "webpack --mode development",
     "start": "node ./server/",
     "seed": "node ./database/dataGenerator.js && npm run dropCollection && npm run import",
     "dropCollection": "mongo --host \"database\" musicLibrary --eval 'db.songs.drop()'",
