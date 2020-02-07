@@ -2,6 +2,7 @@ const path = require('path');
 
 const srcDir = path.join(__dirname, 'client/src');
 const distDir = path.join(__dirname, 'client/dist');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: srcDir,
@@ -9,6 +10,13 @@ module.exports = {
     filename: 'relatedTracks_bundle.js',
     path: distDir,
   },
+  plugins : [ 
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      statsOptions: { source: false }
+    }),
+  ],
   module: {
     rules: [
       {
