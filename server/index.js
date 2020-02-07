@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-app.get('/api/songs/:songId', (req, res) => {
+app.get('/api/relatedTracks/songs/:songId', (req, res) => {
   // would return { songId: "<Number>"}
   const songId = Number(req.params.songId);
   // call db method here

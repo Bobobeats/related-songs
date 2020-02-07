@@ -12,7 +12,7 @@ const App = (props) => {
 
   function fetchRelatedTracks() {
     const { songId } = props;
-    fetch(`/api/songs/${songId}`)
+    fetch(`/api/relatedTracks/songs/${songId}`)
       .then((resp) => resp.json())
       .then((data) => updateTracks(data));
   }
